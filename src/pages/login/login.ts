@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, Loading, LoadingController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { Tabs } from '../tabs/tabs';
+import { AuthService} from '../../providers/auth-service';
 /**
  * Generated class for the Login page.
  *
@@ -12,17 +13,31 @@ import { Tabs } from '../tabs/tabs';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
+  // providers:[AuthService]
 })
 export class Login {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  loading: Loading;
+  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,private auth:AuthService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login');
   }
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
+  }
   login(){
-    this.navCtrl.setRoot(Tabs)
+    this.showLoading();
+    this.auth.login("seif","111111").subscribe(data=>{
+      this.navCtrl.setRoot(Tabs)
+    },errors=>{
+      console.log("errors:",errors)
+    })
+
 
 
   }
