@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { ScanQR } from '../scan-qr/scan-qr';
+import { HomePage } from '../home/home';
+
 /**
  * Generated class for the Requset page.
  *
@@ -19,6 +22,15 @@ export class Requset {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Requset');
+  }
+  goHome(){
+    this.navCtrl.push(HomePage)
+  }
+  goForRequset(){
+    this.navCtrl.push(Requset)
+  }
+  goToScan(){
+    this.navCtrl.push(ScanQR)
   }
 
 }

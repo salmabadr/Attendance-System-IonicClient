@@ -1,36 +1,30 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Requset } from '../requset/requset';
-
 import { HomePage } from '../home/home';
-
+import { Tabs } from '../tabs/tabs';
 /**
- * Generated class for the ScanQR page.
+ * Generated class for the Login page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-scan-qr',
-  templateUrl: 'scan-qr.html',
+  selector: 'page-login',
+  templateUrl: 'login.html',
 })
-export class ScanQR {
+export class Login {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ScanQR');
+    console.log('ionViewDidLoad Login');
   }
-  goHome(){
-    this.navCtrl.push(HomePage)
-  }
-  goForRequset(){
-    this.navCtrl.push(Requset)
-  }
-  goToScan(){
-    this.navCtrl.push(ScanQR)
+  login(){
+    this.navCtrl.setRoot(Tabs)
+
+
   }
 
 }

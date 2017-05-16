@@ -5,19 +5,7 @@
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
-  <ion-toolbar no-border-top >
-    <ion-segment [(ngModel)]="pet">
-      <ion-segment-button value="Home" (click)="goHome()">
-        Home
-      </ion-segment-button>
-      <ion-segment-button value="Requset">
-        Requset
-      </ion-segment-button>
-      <ion-segment-button value="scan QR">
-        Scan QR
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding>
@@ -29,3 +17,10 @@
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
+
+
+<!-- <ion-tabs>
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
+  <ion-tab [root]="requset_tab" tabTitle="Reauest" tabIcon="information-circle"></ion-tab>
+  <ion-tab [root]="scan_tab" tabTitle="ScanQR" tabIcon="contacts"></ion-tab>
+</ion-tabs> -->
