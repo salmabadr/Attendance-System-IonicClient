@@ -5,6 +5,19 @@
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
+  <ion-toolbar no-border-top >
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="Home" (click)="goHome()">
+        Home
+      </ion-segment-button>
+      <ion-segment-button value="Requset">
+        Requset
+      </ion-segment-button>
+      <ion-segment-button value="scan QR">
+        Scan QR
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
