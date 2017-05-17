@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Requset } from '../requset/requset';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { HomePage } from '../home/home';
 
@@ -14,23 +15,39 @@ import { HomePage } from '../home/home';
 @Component({
   selector: 'page-scan-qr',
   templateUrl: 'scan-qr.html',
+   providers:[BarcodeScanner]
 })
 export class ScanQR {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public scannedText: string="no thing";
+  public buttonText: string;
+  public loading: boolean;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScanQR');
+    this.buttonText = "Scan";
+    this.loading = false;
   }
-  goHome(){
-    this.navCtrl.push(HomePage)
-  }
-  goForRequset(){
-    this.navCtrl.push(Requset)
-  }
-  goToScan(){
-    this.navCtrl.push(ScanQR)
-  }
+  public scanQR() {
+  this.buttonText = "Loading..";
+  this.loading = true;
+
+  this.barcodeScanner.scan().then((barcodeData) => {
+    if (barcodeData.cancelled) {
+      console.log("User cancelled the action!");
+      this.buttonText = "Scan";
+      this.loading = false;
+      return false;
+    }
+    console.log("Scanned successfully!");
+    console.log(barcodeData);
+    this.scannedText=barcodeData.text
+
+  }, (err) => {
+    console.log(err);
+  });
+}
+
 
 }
