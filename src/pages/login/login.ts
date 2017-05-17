@@ -33,7 +33,7 @@ export class Login {
   }
   login(){
     this.showLoading();
-    this.auth.login("seif","111111").subscribe(data=>{
+    this.auth.login(this.user.username,this.user.password).subscribe(data=>{
       console.log("data :",data)
       this.navCtrl.setRoot(Tabs)
     },errors=>{

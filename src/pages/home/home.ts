@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
 
-
+  user:any={id:0,name:"x",username:'x',track:'x',branche:'x'};
   constructor(public navCtrl: NavController, private storage:Storage) {
 
   }
@@ -26,7 +26,15 @@ export class HomePage {
   }
   ionViewDidLoad() {
    console.log("ok")
-   this.storage.get("user").then((value)=>{console.log("value",value)}).catch((error)=>{console.log("error",error)})
+   this.storage.get("user").then((value)=>{
+     console.log("value",value);
+     this.user.id=value.id;
+     this.user.name=value.name;
+     this.user.username=value.username;
+     this.user.track=value.track.name;
+     this.user.branche=value.track.branch.name;
+     console.log("info",this.user["id"]);
+   }).catch((error)=>{console.log("error",error)})
  }
 
 }
