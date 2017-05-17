@@ -1,3 +1,21 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>PROFILE</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list >
+
+      <ion-item>NAME </ion-item>
+      <ion-item>TRACK </ion-item>
+      <ion-item>BRANCHE </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+<ion-nav id="nav" #content ></ion-nav>
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -17,7 +35,7 @@
   </ion-row>
   <ion-row>
     <ion-col col-6>Lates :</ion-col>
-    <ion-col col-6>4 times</ion-col>
+    <ion-col col-6> 4 times</ion-col>
   </ion-row>
   <ion-row>
     <ion-col col-6>permisions :</ion-col>

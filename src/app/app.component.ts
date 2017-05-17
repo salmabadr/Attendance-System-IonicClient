@@ -6,6 +6,7 @@ import { Tabs } from '../pages/tabs/tabs';
 import { Login } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,11 +20,12 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage:Storage) {
     this.initializeApp();
     this.name="seif eleslam";
     this.track='open source';
     this.branche='Nasr City';
+    console.log("user",this.storage.get("user"))
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },

@@ -34,6 +34,7 @@ export class Login {
   login(){
     this.showLoading();
     this.auth.login("seif","111111").subscribe(data=>{
+      console.log("data :",data)
       this.navCtrl.setRoot(Tabs)
     },errors=>{
       console.log("errors:",errors)

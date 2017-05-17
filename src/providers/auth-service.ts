@@ -21,8 +21,10 @@ export class AuthService {
     let contentHeader = new Headers({"Content-Type": "application/json"});
     return this.http.post(AppSettings.API_ENDPOINT + '/api/token-authentication', { username: username, password: password })
             .map((response: Response) => {
-                console.log("response :",response)
-                this.storage.set('token', response);
+              let user = response.json();
+                console.log("return :",user)
+                //console.log("response :",response)
+                this.storage.set('user', user);
 
             });
   }
