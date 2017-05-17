@@ -31,13 +31,11 @@
           <ion-list inset>
 
             <ion-item>
-              <ion-input type="text" placeholder="Email" name="email"></ion-input>
-              <!-- <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input> -->
+              <ion-input type="text" [(ngModel)]="user.username" placeholder="User Name" name="username" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" ></ion-input>
-              <!-- <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input> -->
+              <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" name="password" required ></ion-input>
 
             </ion-item>
 
@@ -47,7 +45,7 @@
 
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
+          <button ion-button class="submit-btn" full type="submit" [disabled]="user.username==''|| user.password==''">Login</button>
           <!-- <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button> -->
         </ion-col>
       </ion-row>

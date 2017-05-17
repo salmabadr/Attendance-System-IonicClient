@@ -17,6 +17,7 @@ import { AuthService} from '../../providers/auth-service';
 })
 export class Login {
   loading: Loading;
+  user:any={username:"",password:""};
   constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,private auth:AuthService) {
   }
 
