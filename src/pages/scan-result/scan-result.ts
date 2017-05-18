@@ -39,14 +39,17 @@ export class ScanResult {
       console.log("value",value);
       this.token=value.token;
       this.id=value.id;
-
+      this.getAttendance();
     }).catch((error)=>{console.log("error",error)})
+
   }
   getAttendance(){
+    alert(this.id);
     this.showLoading();
     this.attendance.getAttendance(this.id,this.token,this.scannedText).subscribe(data=>{
-      this.obj=data;
-    },error=>{})
+        this.obj=data;
+      alert(JSON.stringify(data.schedule.day_date))
+    },error=>{alert(JSON.stringify(error))})
   }
 
 }

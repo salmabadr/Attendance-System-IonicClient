@@ -20,7 +20,8 @@ export class Attendance {
     let contentHeader = new Headers({"Content-Type": "application/json"});
     return this.http.post(AppSettings.API_ENDPOINT + '/api/attendances', { user_id: id, token: token, qrcode: qrcode })
             .map((response: Response) => {
-              //let user = response.json();
+              return response.json();
+              // let data = response.json();
                 //console.log("return :",user)
                 //console.log("response :",response)
 
