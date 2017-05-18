@@ -14,5 +14,13 @@
 
 
 <ion-content padding>
+  <ion-list>
+  <ion-item>
+    <ion-label>Schedule :</ion-label>
+    <ion-select [(ngModel)]="select">
+      <ion-option *ngFor="let day of days" value="{{day.id}}">{{day.day_date}}</ion-option>
 
+    </ion-select>
+  </ion-item>
+</ion-list>
 </ion-content>

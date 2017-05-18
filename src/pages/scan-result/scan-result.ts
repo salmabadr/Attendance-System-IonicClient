@@ -19,7 +19,7 @@ export class ScanResult {
   public token:any="000";
   public id:any;
   loading: Loading;
-  public obj:any;
+
   constructor(public attendance:Attendance,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,private storage:Storage) {
   }
 
@@ -40,14 +40,14 @@ export class ScanResult {
       this.token=value.token;
       this.id=value.id;
       this.getAttendance();
-    }).catch((error)=>{console.log("error",error)})
+    }).catch((error)=>{alert(error)})
 
   }
   getAttendance(){
     alert(this.id);
     this.showLoading();
     this.attendance.getAttendance(this.id,this.token,this.scannedText).subscribe(data=>{
-        this.obj=data;
+        
       alert(JSON.stringify(data.schedule.day_date))
     },error=>{alert(JSON.stringify(error))})
   }

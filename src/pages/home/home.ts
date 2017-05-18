@@ -15,15 +15,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, private storage:Storage) {
 
   }
-  goHome(){
-    this.navCtrl.push(HomePage)
-  }
-  goForRequset(){
-    this.navCtrl.push(Requset)
-  }
-  goToScan(){
-    this.navCtrl.push(ScanQR)
-  }
+
   ionViewDidLoad() {
    console.log("ok")
    this.storage.get("user").then((value)=>{

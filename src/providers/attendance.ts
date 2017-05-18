@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { URLSearchParams, Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {AppSettings} from '../app-settings';
 
@@ -29,8 +29,20 @@ export class Attendance {
             });
   }
 
-  getPermission(){
+  getPermission(id: any, token: any, qrcode: any){
 
+  }
+
+  getSchedule(id:any, token: any){
+    let searchUrl = AppSettings.API_ENDPOINT + '/api/schedules';
+    let params = new URLSearchParams();
+
+    params.set('track_id', id);
+    //  let options = token;
+    //  options.search = params;
+    return this.http
+      .get(searchUrl,params)
+      .map(response => response.json());
   }
 
 }
