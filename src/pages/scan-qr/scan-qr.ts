@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Requset } from '../requset/requset';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
-import { HomePage } from '../home/home';
+import { ScanResult } from '../scan-result/scan-result';
 
 /**
  * Generated class for the ScanQR page.
@@ -29,6 +29,12 @@ export class ScanQR {
     this.buttonText = "Scan";
     this.loading = false;
   }
+  ionViewDidEnter(){
+    console.log("page did enter")
+    this.buttonText = "Scan";
+    this.loading = false;
+    this.scannedText="no thing"
+  }
   public scanQR() {
   this.buttonText = "Loading..";
   this.loading = true;
@@ -43,9 +49,15 @@ export class ScanQR {
     console.log("Scanned successfully!");
     console.log(barcodeData);
     this.scannedText=barcodeData.text
-
+    this.goToResult(barcodeData);
   }, (err) => {
     console.log(err);
+  });
+}
+
+private goToResult(barcodeData) {
+  this.navCtrl.push(ScanResult, {
+    scannedText: barcodeData.text
   });
 }
 

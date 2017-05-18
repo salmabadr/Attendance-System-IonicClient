@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
 
-  user:any={id:0,name:"x",username:'x',track:'x',branche:'x'};
+  user:any={id:0,name:"x",username:'x',track:'x',branche:'x',token:'X'};
   constructor(public navCtrl: NavController, private storage:Storage) {
 
   }
@@ -33,7 +33,8 @@ export class HomePage {
      this.user.username=value.username;
      this.user.track=value.track.name;
      this.user.branche=value.track.branch.name;
-     console.log("info",this.user["id"]);
+     this.user.token=value.token;
+     console.log("token",this.user["token"]);
    }).catch((error)=>{console.log("error",error)})
  }
 

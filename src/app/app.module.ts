@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { ScanResult } from '../pages/scan-result/scan-result';
 import { Requset } from '../pages/requset/requset';
 import { Tabs } from '../pages/tabs/tabs';
 import { Login } from '../pages/login/login';
@@ -22,7 +23,8 @@ import { IonicStorageModule } from '@ionic/storage';
     ScanQR,
     Requset,
     Tabs,
-    Login
+    Login,
+    ScanResult
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { IonicStorageModule } from '@ionic/storage';
     ScanQR,
     Requset,
     Tabs,
-    Login
+    Login,
+    ScanResult
   ],
   providers: [
     StatusBar,

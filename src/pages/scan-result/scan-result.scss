@@ -1,3 +1,19 @@
 page-scan-result {
+  .Scan-result{
+  background: white;
+}
 
+.Scan-resultUser{
+  text-align: center;
+  color: brown;
+}
+
+.Scan-resultImage{
+  border-radius: 100px;
+}
+
+.Scan-resultImage{
+  display: flex;
+  justify-content: center;
+}
 }
