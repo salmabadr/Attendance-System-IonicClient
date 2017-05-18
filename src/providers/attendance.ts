@@ -34,7 +34,7 @@ export class Attendance {
   }
 
   getSchedule(id:any, token: any){
-    let searchUrl = AppSettings.API_ENDPOINT + '/api/schedules';
+    let searchUrl = AppSettings.API_ENDPOINT + '/api/schedules/new';
     let params = new URLSearchParams();
 
     params.set('track_id', id);

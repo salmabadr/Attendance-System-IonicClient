@@ -3,6 +3,7 @@ import { IonicPage, NavController, Loading, LoadingController, NavParams } from 
 import { HomePage } from '../home/home';
 import { Tabs } from '../tabs/tabs';
 import { AuthService} from '../../providers/auth-service';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the Login page.
  *
@@ -18,12 +19,22 @@ import { AuthService} from '../../providers/auth-service';
 export class Login {
   loading: Loading;
   user:any={username:"",password:""};
-  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,private auth:AuthService) {
+  constructor(public loadingCtrl: LoadingController ,public navCtrl: NavController,
+     public navParams: NavParams, private auth: AuthService, public storage:Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login');
+    this.clearKeys();
+    console.log("clear cashe")
   }
+
+  clearKeys() {
+   this.storage.clear().then(() => {
+     console.log('Keys have been cleared');
+   });
+ }
+
   showLoading() {
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...',
