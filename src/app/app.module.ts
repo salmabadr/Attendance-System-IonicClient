@@ -13,6 +13,7 @@ import { ScanQR } from '../pages/scan-qr/scan-qr';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService} from '../providers/auth-service';
+import { Attendance} from '../providers/attendance';
 import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
@@ -47,6 +48,7 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     AuthService,
+    Attendance,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
