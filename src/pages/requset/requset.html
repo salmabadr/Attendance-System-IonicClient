@@ -17,10 +17,11 @@
   <ion-list>
   <ion-item>
     <ion-label>Schedule :</ion-label>
-    <ion-select [(ngModel)]="select">
+    <ion-select [(ngModel)]="select" (ngModelChange)="showSelectValue($event)">
       <ion-option *ngFor="let day of days" value="{{day.id}}">{{day.day_date}}</ion-option>
 
     </ion-select>
   </ion-item>
 </ion-list>
+<button ion-button block color="secondary" class="Scan-button" (click)="askForPermission()" [disabled]="loading">Ask For Permission</button>
 </ion-content>

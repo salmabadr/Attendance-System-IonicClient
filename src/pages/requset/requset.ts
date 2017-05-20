@@ -19,6 +19,8 @@ export class Requset {
   loading: Loading;
   public token:any="000";
   public id:any;
+  public user_id:any;
+  public day_id:any;
   public days:Array<any>=[];
   public select:string="select day";
   constructor(public attendance:Attendance,public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams,private storage:Storage) {
@@ -33,11 +35,12 @@ export class Requset {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Requset');
-    alert("ok")
+    //alert("ok")
     this.storage.get("user").then((value)=>{
       console.log("value",value);
       this.token=value.token;
       this.id=value.track.id;
+      this.user_id=value.id;
       this.getSchedule();
     }).catch((error)=>{alert(error)})
   }
@@ -46,11 +49,28 @@ export class Requset {
     //this.showLoading();
     this.attendance.getSchedule(this.id,this.token).subscribe(data=>{
       //alert(JSON.stringify(data))
+      //this.loading.dismiss();
       this.days=data;
     },error=>{
+      //this.loading.dismiss();
       alert(JSON.stringify(error))
     })
   }
+  askForPermission(){
+    //this.showLoading();
+    //alert(this.id);
+      //alert(this.user_id);
+    this.attendance.getPermission(this.user_id,this.day_id).subscribe(data=>{
+      //this.loading.dismiss();
+      alert(data)
+    },error=>{
+      //this.loading.dismiss();
+      alert(JSON.stringify(error))})
+  }
+  showSelectValue = function(select) {
+    console.log("value :",select);
+	this.day_id=select;
+}
 
 
 }

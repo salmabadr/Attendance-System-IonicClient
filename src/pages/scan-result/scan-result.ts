@@ -44,10 +44,10 @@ export class ScanResult {
 
   }
   getAttendance(){
-    alert(this.id);
+    //alert(this.id);
     this.showLoading();
     this.attendance.getAttendance(this.id,this.token,this.scannedText).subscribe(data=>{
-        
+
       alert(JSON.stringify(data.schedule.day_date))
     },error=>{alert(JSON.stringify(error))})
   }
