@@ -31,13 +31,14 @@ export class HomePage {
      this.user.branche=value.track.branch.name;
      this.user.token=value.token;
      console.log("token",this.user["token"]);
+     this.get_detalis()
    }).catch((error)=>{console.log("error",error)})
 
-   this.get_detalis()
+
  }
  get_detalis(){
-   this.attendance.get_detalis(this.user.id).subscribe(data=>{
-
+   this.attendance.get_detalis(this.user.id,this.user.token).subscribe(data=>{
+     alert(JSON.stringify(data))
    },error=>{
      alert(JSON.stringify(error))
    })

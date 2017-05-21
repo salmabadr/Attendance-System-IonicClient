@@ -47,8 +47,8 @@ export class ScanResult {
     //alert(this.id);
     this.showLoading();
     this.attendance.getAttendance(this.id,this.token,this.scannedText).subscribe(data=>{
-
-      alert(JSON.stringify(data.schedule.day_date))
+      alert("You have registered successfully for"+JSON.stringify(data.schedule.day_date))
+      //alert(JSON.stringify(data.schedule.day_date))
     },error=>{alert(JSON.stringify(error))})
   }
 

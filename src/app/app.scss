@@ -1,6 +1,21 @@
 // http://ionicframework.com/docs/v2/theming/
 
-
+ion-tab{
+  color: brown;
+}
+.tabs-md .tab-button[aria-selected=true] {
+    color: brown; /*your  text color */
+    // background: #808080; /* your background color*/
+}
+.tab-item-active{
+  background:brown;
+}
+.toolbar-title{
+  color:brown;
+}
+ion-label{
+  color:brown;
+}
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

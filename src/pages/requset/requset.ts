@@ -17,6 +17,7 @@ import { Attendance} from '../../providers/attendance';
 })
 export class Requset {
   loading: Loading;
+  public msg:string="";
   public token:any="000";
   public id:any;
   public user_id:any;
@@ -50,6 +51,7 @@ export class Requset {
     this.attendance.getSchedule(this.id,this.token).subscribe(data=>{
       //alert(JSON.stringify(data))
       //this.loading.dismiss();
+      console.log("get schedule")
       this.days=data;
     },error=>{
       //this.loading.dismiss();
@@ -60,16 +62,24 @@ export class Requset {
     //this.showLoading();
     //alert(this.id);
       //alert(this.user_id);
-    this.attendance.getPermission(this.user_id,this.day_id).subscribe(data=>{
+      console.log(this.token)
+    this.attendance.getPermission(this.user_id,this.day_id,this.token).subscribe(data=>{
       //this.loading.dismiss();
-      alert(data)
+      this.msg="Your request has been sent"
+      //alert(data)
     },error=>{
       //this.loading.dismiss();
-      alert(JSON.stringify(error))})
+      console.log(JSON.stringify(error))
+      alert(JSON.stringify(error._body))})
   }
   showSelectValue = function(select) {
     console.log("value :",select);
 	this.day_id=select;
+}
+
+ionViewDidEnter(){
+  console.log("page did enter")
+  this.msg="";
 }
 
 
